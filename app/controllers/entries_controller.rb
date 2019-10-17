@@ -10,6 +10,6 @@ class EntriesController < ApplicationController
 
     private
     def entry_params
-        require(:entry).permit(:user_id, :category_id, :message, :emotions_hash, :colours, :public )
+        require(:entry).permit(:user_id, :category_id, :message, :emotions_hash, :colours, :public? )
     end
 end

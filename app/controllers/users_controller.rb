@@ -8,8 +8,9 @@ class UsersController < ApplicationController
         render json: User.find(params[:id])
     end
 
+
     private
     def user_params
-        require(:user).permit(:username)
+        require(:user).permit(:email)
     end
 end
