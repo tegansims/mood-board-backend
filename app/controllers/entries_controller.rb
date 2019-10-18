@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'open-uri'
 require 'json'
+require 'byebug'
 
 class EntriesController < ApplicationController
 
@@ -21,14 +22,22 @@ class EntriesController < ApplicationController
         render json: Entry.find(params[:id])
     end
 
-    def search    
-        text = "I'm sad we only have four weeks left to live"
-
-        ### THIS IS WHERE THE API KEY GOES
-
+    def search(text='default happy message here')    
+        # api_key = 
+        
         response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: api_key, text: text}
         response = JSON.parse( response )
         render json: response
+    end
+
+    def create
+        newEntry = Entry.new(message: params['message'], category_id: 1, user_id: 1, public?: params['public'])
+        
+        # do search method to get emotions_hash and colours
+        
+        # newEntry.emotions_hash = 
+        # newEntry.colours = 
+        newEntry.save
     end
 
     private
