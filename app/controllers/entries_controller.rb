@@ -9,6 +9,7 @@ class EntriesController < ApplicationController
     end
 
     def create 
+        
         #entry = Entry.create(user_id: 1, )
     end
 
@@ -24,9 +25,7 @@ class EntriesController < ApplicationController
     def search    
         text = "I'm sad we only have four weeks left to live"
 
-        ### THIS IS WHERE THE API KEY GOES
-
-        response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: api_key, text: text}
+        response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: ENV['PARALLEL_DOTS_API_KEY'], text: text}
         response = JSON.parse( response )
         render json: response
     end
