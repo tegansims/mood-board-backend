@@ -5,12 +5,6 @@ require 'byebug'
 
 class EntriesController < ApplicationController
 
-    def new
-
-    end
-
-
-
     def index
         render json: Entry.all
     end
@@ -25,14 +19,29 @@ class EntriesController < ApplicationController
         render json: response
     end
 
+
+    def new
+        @entry = Entry.new
+    end
+
     def create
-        newEntry = Entry.new(message: params['message'], category_id: 1, user_id: 1, public?: params['public'])
+        newEntry = Entry.create(message: params['message'], category_id: 1, user_id: 1, public?: params['public'])
         
         # do search method to get emotions_hash and colours
         
         # newEntry.emotions_hash = 
         # newEntry.colours = 
-        newEntry.save
+        redirect_to entry_path(newEntry)
+    end
+
+    def edit
+        @entry = Entry.find(params[:id])
+    end
+
+    def update
+        @entry = Entry.find(params[:id])
+        @entry.update(entry_params)
+        redirect_to entry_path(@entry)
     end
 
     def destroy 
