@@ -9,10 +9,6 @@ class EntriesController < ApplicationController
 
     end
 
-    def create 
-        
-        #entry = Entry.create(user_id: 1, )
-    end
 
 
     def index
@@ -37,6 +33,12 @@ class EntriesController < ApplicationController
         # newEntry.emotions_hash = 
         # newEntry.colours = 
         newEntry.save
+    end
+
+    def destroy 
+        @entry = Entry.find(params[:id])
+        @entry.destroy
+        redirect_to entries_path
     end
 
     private
