@@ -5,11 +5,18 @@ require 'json'
 class Entry < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :emotions
 
   ##move out of the controller to here
-  def get_emotions
-
+  def emotions_create(id,text)
+      response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: ENV['PARALLEL_DOTS_API_KEY'], text: text}
+      response = JSON.parse( response ).with_indifferent_access
+      # parsed_json = ActiveSupport::JSON.decode(response)
+      #render json: response
+      new_emotion = Emotion.create(entry_id: id, happy: response['emotion']['happy'], sad: response['emotion']['sad'], angry: response['emotion']['angry'], fear: response['emotion']['fear'], excited: response['emotion']['excited'], bored: response['emotion']['bored'] || response['emotion']['indifferent'])
+      render json: new_emotion
   end
+
 
 
   def self.clean_colours_hash(id)

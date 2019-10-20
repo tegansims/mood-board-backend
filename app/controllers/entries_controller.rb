@@ -13,6 +13,7 @@ class EntriesController < ApplicationController
         render json: Entry.find(params[:id])
     end
 
+
     def search(id, text="default happy message")   
         response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: ENV['PARALLEL_DOTS_API_KEY'], text: text}
         response = JSON.parse( response )
@@ -21,7 +22,6 @@ class EntriesController < ApplicationController
         @entry.update(emotions_hash: response)
         redirect_to entry_path(@entry)
     end
-
 
     def new
         @entry = Entry.new
@@ -33,7 +33,8 @@ class EntriesController < ApplicationController
         if newEntry.save
             # do search method to get emotions_hash and colours
             #redirect_to entry_path(newEntry)
-            search(newEntry.id, newEntry.message)
+           # search(newEntry.id, newEntry.message)
+           newEntry.emotions_create(newEntry.id, newEntry.message)
         else
             flash[:error] = 'Failed to add message'
             render :new
