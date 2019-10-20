@@ -17,6 +17,9 @@ class Entry < ApplicationRecord
       render json: new_emotion
   end
 
+  def self.create_colour(emotion_id, entry_id)
+    
+  end
 
 
   def self.clean_colours_hash(id)
@@ -41,8 +44,6 @@ class Entry < ApplicationRecord
       obj
   end
 
-  def self.create_colour(obj)
-    
-  end
+ 
 
 end
