@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_122401) do
+ActiveRecord::Schema.define(version: 2019_10_20_133014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2019_10_17_122401) do
     t.string "category_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "emotions", force: :cascade do |t|
+    t.decimal "angry"
+    t.decimal "happy"
+    t.decimal "excited"
+    t.decimal "fear"
+    t.decimal "sad"
+    t.decimal "bored"
+    t.bigint "entry_id", null: false
+    t.index ["entry_id"], name: "index_emotions_on_entry_id"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -41,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_10_17_122401) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "emotions", "entries"
   add_foreign_key "entries", "categories"
   add_foreign_key "entries", "users"
 end
