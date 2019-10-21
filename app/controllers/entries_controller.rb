@@ -14,14 +14,14 @@ class EntriesController < ApplicationController
     end
 
 
-    def search(id, text="default happy message")   
-        response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: ENV['PARALLEL_DOTS_API_KEY'], text: text}
-        response = JSON.parse( response )
-        #render json: response
-        @entry = Entry.find(id)
-        @entry.update(emotions_hash: response)
-        redirect_to entry_path(@entry)
-    end
+    # def search(id, text="default happy message")   
+    #     response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: ENV['PARALLEL_DOTS_API_KEY'], text: text}
+    #     response = JSON.parse( response )
+    #     #render json: response
+    #     @entry = Entry.find(id)
+    #     @entry.update(emotions_hash: response)
+    #     redirect_to entry_path(@entry)
+    # end
 
     def new
         @entry = Entry.new
@@ -63,7 +63,7 @@ class EntriesController < ApplicationController
 
     private
     def entry_params
-        require(:entry).permit(:user_id, :category_id, :message, :emotions_hash, :colours, :public? )
+        require(:entry).permit(:user_id, :category_id, :message, :colours, :public? )
     end
 
   
