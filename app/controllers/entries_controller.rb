@@ -19,10 +19,11 @@ class EntriesController < ApplicationController
 
     def create
         
-        newEntry = Entry.create(message: params['message'], category_id: 1, user_id: 1, public?: params['public'])
-
-        if newEntry.save
-         
+        categoryId = Category.find_by(category_name: params['category']).id
+        
+        newEntry = Entry.create(message: params['message'], category_id: categoryId, user_id: 1, public?: params['public'])
+        
+        if newEntry.save 
            newEntry.colours = Emotion.create_with_colour(newEntry.id, newEntry.message)
            newEntry.save
            render json: newEntry
@@ -30,7 +31,6 @@ class EntriesController < ApplicationController
             flash[:error] = 'Failed to add message'
             render :new
         end
-
     end
 
     def edit
@@ -51,7 +51,7 @@ class EntriesController < ApplicationController
 
     private
     def entry_params
-        require(:entry).permit(:user_id, :category_id, :message, :colours, :public? )
+        require(:entry).permit(:user_id, :category_id, :category, :message, :colours, :public? )
     end
 
   
