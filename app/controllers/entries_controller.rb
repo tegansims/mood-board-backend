@@ -34,7 +34,9 @@ class EntriesController < ApplicationController
             # do search method to get emotions_hash and colours
             #redirect_to entry_path(newEntry)
            # search(newEntry.id, newEntry.message)
-           newEntry.emotions_create(newEntry.id, newEntry.message)
+           newEntry.colours = Emotion.create_with_colour(newEntry.id, newEntry.message)
+           newEntry.save
+           render json: newEntry
         else
             flash[:error] = 'Failed to add message'
             render :new
