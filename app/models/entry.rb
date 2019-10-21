@@ -17,8 +17,19 @@ class Entry < ApplicationRecord
       render json: new_emotion
   end
 
+  emotions_hash6 ={"emotion":{"Angry":0.8,"Happy":0.025,"Excited":0.05,"Fear":0.5,"Sad":0.025,"Bored":0.025}}
+  
+  def get_numbers_out(hash)
+    return hash.values[0].values
+  end
+
+ def to_hex(array)
+    numberarray = array.map { |num| (num*16).round.to_s(16) }
+    return numberarray[0]+numberarray[3]+numberarray[1]+numberarray[2]+numberarray[4]+numberarray[5]
+ end
+
   def self.create_colour(emotion_id, entry_id)
-    
+    #once we have our emotion (and its id), and our entry_id), this method updates entry["colours"] with the above colour!
   end
 
 
