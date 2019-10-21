@@ -27,25 +27,23 @@ Category.create(category_name: 'commute')
 entry_1 = Entry.create(
     user_id: 1, 
     category_id: 1, 
-    message: "everything is really great", 
-    emotions_hash: '{"emotion":{"Angry":0.0292482309,"Happy":0.5742702468,"Excited":0.2057780772,"Fear":0.1527531365,"Sad":0.0245192155,"Bored":0.013431093}}', 
-    colours: "d663bb", 
+    message: "everything is really great",
+    colours: "001000",
     public?: true
 )
 entry_2 = Entry.create(
     user_id: 1, 
     category_id: 1, 
-    message: "Today I did not feel so good", 
-    emotions_hash: '{"emotion":{"Angry":0.379597349,"Happy":0.0823277677,"Excited":0.1620926857,"Fear":0.1020909454,"Sad":0.2570584763,"Bored":0.0168327759}}', 
-    colours: "23b3e8", 
-    public?: true)
+    message: "Today I did not feel so good",
+    colours: "000100",
+    public?: true
+)
 
 Entry.create(
     user_id: 1,
     category_id: 2,
     message: 'hello i am a penguin',
-    emotions_hash: '{"emotion":{"Angry":0.379597349,"Happy":0.0823277677,"Excited":0.1620926857,"Fear":0.1020909454,"Sad":0.2570584763,"Bored":0.0168327759}}', 
-    colours: 'fc9d03',
+    colours: "001000",
     public?: false
 )
 
@@ -53,8 +51,7 @@ Entry.create(
     user_id: 2,
     category_id: 4,
     message: 'i am really sad boohooohooo',
-    emotions_hash: '{"emotion":{"Angry":0.379597349,"Happy":0.0823277677,"Excited":0.1620926857,"Fear":0.1020909454,"Sad":0.2570584763,"Bored":0.0168327759}}', 
-    colours: '487fa1',
+    colours: "000100",
     public?: true
 )
 
@@ -62,8 +59,7 @@ Entry.create(
     user_id: 3,
     category_id: 3,
     message: 'today was a good day! I got stuff DONE',
-    emotions_hash: '{"emotion":{"Angry":0.379597349,"Happy":0.0823277677,"Excited":0.1620926857,"Fear":0.1020909454,"Sad":0.2570584763,"Bored":0.0168327759}}', 
-    colours: 'a575d9',
+    colours: "001000",
     public?: true
 )
 
@@ -71,8 +67,7 @@ Entry.create(
     user_id: 4,
     category_id: 4,
     message: "la de da, i'm relaxing on a tropical island",
-    emotions_hash: '{"emotion":{"Angry":0.379597349,"Happy":0.0823277677,"Excited":0.1620926857,"Fear":0.1020909454,"Sad":0.2570584763,"Bored":0.0168327759}}', 
-    colours: '2597cc',
+    colours: "010000",
     public?: true
 )
 
@@ -80,7 +75,6 @@ Entry.create(
     user_id: 5,
     category_id: 1,
     message: 'this project is going to be so cool',
-    emotions_hash: '{"emotion":{"Angry":0.379597349,"Happy":0.0823277677,"Excited":0.1620926857,"Fear":0.1020909454,"Sad":0.2570584763,"Bored":0.0168327759}}', 
-    colours: 'd14e26',
+    colours: "000100",
     public?: true
 )

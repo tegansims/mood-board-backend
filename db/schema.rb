@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_10_20_133014) do
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.string "message"
-    t.string "emotions_hash"
     t.string "colours"
     t.boolean "public?"
     t.datetime "created_at", precision: 6, null: false
