@@ -1,20 +1,12 @@
 class Emotion < ApplicationRecord
     belongs_to :entry
 
-    def self.request_emotions_hash(id, text)
-        response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: ENV['PARALLEL_DOTS_API_KEY'], text: text}
-        response = JSON.parse( response )
-        #render json: response
-        puts response
-    end
-
     def self.create_with_colour(id,text)
-        response = RestClient.post "https://apis.paralleldots.com/v5/emotion", { api_key: ENV['PARALLEL_DOTS_API_KEY'], text: text}
-        response = JSON.parse( response ).with_indifferent_access
-        # parsed_json = ActiveSupport::JSON.decode(response)
-        #render json: response
-        new_emotion = Emotion.create(entry_id: id, happy: response['emotion']['happy'], sad: response['emotion']['sad'], angry: response['emotion']['angry'], fear: response['emotion']['fear'], excited: response['emotion']['excited'], bored: response['emotion']['bored'] || response['emotion']['indifferent'])
-        # render json: Entry.find(id)
+        response = RestClient.post "https://apis.paralleldots.com/v4/emotion", { api_key: ENV['PARALLEL_DOTS_API_KEY'], text: text}
+        response2 = JSON.parse( response ).with_indifferent_access
+
+        new_emotion = Emotion.create(entry_id: id, happy: response2[:emotion][:Happy], sad: response2[:emotion][:Sad], angry: response2[:emotion][:Angry], fear: response2[:emotion][:Fear], excited: response2[:emotion][:Excited], bored: response2[:emotion][:Bored] || response2[:emotion][:Indifferent])
+  
         colour = new_emotion.to_hex
     end
   

@@ -28,14 +28,14 @@ entry_1 = Entry.create(
     user_id: 1, 
     category_id: 1, 
     message: "everything is really great",
-    colours: "001000",
+    colours: "127610",
     public?: true
 )
 entry_2 = Entry.create(
     user_id: 1, 
     category_id: 1, 
     message: "Today I did not feel so good",
-    colours: "000100",
+    colours: "180061",
     public?: true
 )
 
@@ -43,7 +43,7 @@ Entry.create(
     user_id: 1,
     category_id: 2,
     message: 'hello i am a penguin',
-    colours: "001000",
+    colours: "236321",
     public?: false
 )
 
@@ -51,7 +51,7 @@ Entry.create(
     user_id: 2,
     category_id: 4,
     message: 'i am really sad boohooohooo',
-    colours: "000100",
+    colours: "0200e0",
     public?: true
 )
 
@@ -59,7 +59,7 @@ Entry.create(
     user_id: 3,
     category_id: 3,
     message: 'today was a good day! I got stuff DONE',
-    colours: "001000",
+    colours: "126700",
     public?: true
 )
 
@@ -67,7 +67,7 @@ Entry.create(
     user_id: 4,
     category_id: 4,
     message: "la de da, i'm relaxing on a tropical island",
-    colours: "010000",
+    colours: "014902",
     public?: true
 )
 
@@ -75,6 +75,6 @@ Entry.create(
     user_id: 5,
     category_id: 1,
     message: 'this project is going to be so cool',
-    colours: "000100",
+    colours: "222811",
     public?: true
 )

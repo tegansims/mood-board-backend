@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_133014) do
+ActiveRecord::Schema.define(version: 2019_10_21_122530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 2019_10_20_133014) do
   end
 
   create_table "emotions", force: :cascade do |t|
-    t.decimal "angry"
-    t.decimal "happy"
-    t.decimal "excited"
-    t.decimal "fear"
-    t.decimal "sad"
-    t.decimal "bored"
+    t.float "angry"
+    t.float "happy"
+    t.float "excited"
+    t.float "fear"
+    t.float "sad"
+    t.float "bored"
     t.bigint "entry_id", null: false
     t.index ["entry_id"], name: "index_emotions_on_entry_id"
   end
