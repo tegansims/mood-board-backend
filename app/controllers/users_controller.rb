@@ -18,6 +18,21 @@ class UsersController < ApplicationController
         # end
     end
 
+    def login
+        
+        user = User.find_by(email: params[:data][:email])
+
+        if user && user.authenticate(params[:data][:password])
+            render json: user
+        else
+            render json: { error: 'Username/password combination invalid' }, status: 401
+        end
+    end
+
+    def signup
+        
+    end
+
     private
     def user_params
         require(:user).permit(:email, :password, :password_confirmation)

@@ -11,11 +11,11 @@ Category.destroy_all
 Entry.destroy_all
 
 
-angie = User.create(email: "angie@angie.com", password_digest: "angie")
-ben = User.create(email: "ben@ben.com", password_digest: "ben")
-User.create(email: 'tegan@tegan.com', password_digest:'tegan')
-User.create(email: 'george@george.com', password_digest:'george')
-User.create(email: 'aude@aude.com', password_digest:'aude')
+angie = User.create(email: "angie@angie.com", password: "angie")
+ben = User.create(email: "ben@ben.com", password: "ben")
+User.create(email: 'tegan@tegan.com', password:'tegan')
+User.create(email: 'george@george.com', password:'george')
+User.create(email: 'aude@aude.com', password:'aude')
 
 hobby = Category.create(category_name: "hobby")
 art = Category.create(category_name: "art")

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resources :emotions
 
-  get '/search', to: 'entries#search'
-  post '/search', to: 'entries#edit'
+  post '/login', to: 'users#login'
+  get '/validate', to: 'users#validate'
+  
 
 end
