@@ -78,3 +78,11 @@ Entry.create(
     colours: "222811",
     public?: true
 )
+
+Entry.create(
+    user_id: 6,
+    category_id: 1,
+    message: "we now have to have categories, which is upsetting",
+    colours: "430091",
+    public?: true
+)
