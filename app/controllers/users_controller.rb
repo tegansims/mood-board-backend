@@ -10,12 +10,13 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_params)
+        
         # uncomment the below when ready to implement auth
-        # if user.valid?
-        #     render json: { token: issue_token({user_id: user.id}), user: UserSerializer.new(user) }
-        # else
-        #     render json: { errors: user.errors.full_messages }, status: :not_acceptable
-        # end
+        if user.valid?
+            render json: { token: issue_token({id: user.id}), user: UserSerializer.new(user) }
+        else
+            render json: { errors: user.errors.full_messages }, status: :not_acceptable
+        end
     end
 
     def login
@@ -42,5 +43,7 @@ class UsersController < ApplicationController
     private
     def user_params
         require(:user).permit(:email, :password, :password_confirmation)
+        #getting the following error when trying to use strong params:
+        # TypeError Exception: no implicit conversion of Symbol into String
     end
 end
