@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        require(:user).permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation)
         #getting the following error when trying to use strong params:
         # TypeError Exception: no implicit conversion of Symbol into String
     end
