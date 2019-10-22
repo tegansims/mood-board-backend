@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   post '/login', to: 'users#login'
   get '/validate', to: 'users#validate'
+  get '/you', to: 'users#show' #might need to change this
   
 
 end
