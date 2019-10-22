@@ -7,5 +7,7 @@ class Entry < ApplicationRecord
   belongs_to :category
   has_many :emotions
 
+  validates :message, presence: true
+
 
 end
