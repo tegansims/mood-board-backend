@@ -8,6 +8,6 @@ class Entry < ApplicationRecord
   has_many :emotions
 
   validates :message, presence: true
-
+  validates :category, presence: true
 
 end
