@@ -11,10 +11,6 @@ class UsersController < ApplicationController
     def create
         user = User.create(user_params)
 
-        #below generates 406 error code, 'not acceptable'
-        #user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-
-
         # uncomment the below when ready to implement auth
         if user.valid?
             render json: { token: issue_token({id: user.id}), user: UserSerializer.new(user) }
@@ -47,7 +43,6 @@ class UsersController < ApplicationController
     private
     def user_params
         params.require(:user).permit(:email, :password, :password_confirmation)
-        #getting the following error when trying to use strong params:
-        # TypeError Exception: no implicit conversion of Symbol into String
+       
     end
 end
