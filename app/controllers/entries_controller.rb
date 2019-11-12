@@ -1,8 +1,3 @@
-require 'rest-client'
-require 'open-uri'
-require 'json'
-require 'byebug'
-
 class EntriesController < ApplicationController
 
     def index
