@@ -4,7 +4,6 @@ class CreateEntries < ActiveRecord::Migration[6.0]
       t.references :user, null: false, foreign_key: true
       t.references :category, null: false, foreign_key: true
       t.string :message
-      t.string :emotions_hash
       t.string :colours
       t.boolean :public
 
